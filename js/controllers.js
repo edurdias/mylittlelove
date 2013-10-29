@@ -1,32 +1,20 @@
-mll.controller("StartupController", ["$scope", "$location", "$timeout", function($scope, $location, $timeout){
-    console.log("startup done");
-
-        $location.path("/home");
+mll.controller("HomeController", ["$scope", function($scope){
 
 }]);
-//
-mll.controller("ContainerController", ["$scope", "content", function($scope, content){
-    $scope.content = content;
+
+mll.controller("FeedingController", ["$scope", function($scope){
+
 }]);
-//
-//
-//mll.controller("HomeController", ["$scope", function($scope){
-//
-//}]);
-//
-//mll.controller("FeedingController", ["$scope", function($scope){
-//
-//}]);
-//
-//mll.controller("DiapersController", ["$scope", function($scope){
-//
-//}]);
-//
-mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", function($scope, $location, $childRepository){
+
+mll.controller("DiapersController", ["$scope", function($scope){
+
+}]);
+
+mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", "$cll", function($scope, $location, $repository, $cll){
     $scope.children = null;
 
     var loadChildren = function(){
-        $childRepository.all(function(children){
+        $repository.all(function(children){
             $scope.children = children;
             $scope.$apply();
         });
@@ -36,8 +24,9 @@ mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", 
 
     $scope.deleteChild = function(child){
         if(confirm("Are you sure that you want to delete this little love? All data associated will be deleted!")){
-            $childRepository.delete(child.id, function(){
+            $repository.delete(child.id, function(){
                 loadChildren();
+                $cll.refresh();
             });
         }
     };
@@ -62,7 +51,7 @@ mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", 
 
 }]);
 
-mll.controller("SettingsNewChildController", ["$scope", "$location", "ChildRepository", function($scope, $location, $childRepository){
+mll.controller("SettingsNewChildController", ["$scope", "$location", "ChildRepository", "$cll", function($scope, $location, $repository, $cll){
 
     $scope.message = null;
 
@@ -72,7 +61,8 @@ mll.controller("SettingsNewChildController", ["$scope", "$location", "ChildRepos
             $scope.message = "Please enter the name of your little love.";
             return;
         }
-        $childRepository.add($scope.name, "");
+        $repository.add($scope.name, "");
+        $cll.refresh();
         $location.path("/settings");
     };
 
@@ -81,18 +71,21 @@ mll.controller("SettingsNewChildController", ["$scope", "$location", "ChildRepos
     }
 }]);
 
-mll.controller("HeaderController", ["$scope", "ChildRepository", function($scope, $childRepository){
-    $scope.currentLittleLove = null;
+mll.controller("HeaderController", ["$scope", "$location", "$cll", function($scope, $location, $cll){
 
-    $childRepository.all(function(children){
-        $scope.currentLittleLove = children.length > 0 ? children[0] : null;
-        $scope.$apply();
+    $scope.currentChild = null;
+
+    $scope.$watch(function(){ return $cll.current; }, function(child){
+        $scope.currentChild = child;
     });
 
+    $scope.goToNewChild = function(){
+        $location.path("/settings/new-child");
+    }
 }]);
 
 mll.controller("NavigationController", ["$scope", "$route", function($scope, $route){
     $scope.is = function(name){
-        return $route.current.$$route.where == name;
+        return  $route.current && $route.current.$$route ? $route.current.$$route.where == name : false;
     };
 }]);

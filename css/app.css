@@ -1,5 +1,4 @@
 body {
-    padding-top: 161px;
     padding-bottom: 70px;
 }
 
@@ -30,14 +29,22 @@ body {
 
 .page-header .child .name {
     display: block;
-    /*margin-left:55px;*/
-
 }
 
 .page-header .child .name h1 {
     font-size:30px;
     line-height: 50px;
     margin: 0 0 0 10px;
+}
+
+.page-header .child .new-child {
+    background: url("../img/teddy-bear.png");
+    background-size: 18px 18px;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
 }
 
 .page-header .logo {
