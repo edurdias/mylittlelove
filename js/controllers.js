@@ -45,6 +45,21 @@ mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", 
     $scope.addNewChild = function(){
         $location.path("/settings/new-child");
     };
+
+    $scope.getUnit = function(){
+        var units = window.localStorage.getItem("units");
+        if(!units)
+        {
+            $scope.setUnit("metric");
+            return "metric";
+        }
+        return units;
+    };
+
+    $scope.setUnit = function(unitName){
+        window.localStorage.setItem("units", unitName);
+    };
+
 }]);
 
 mll.controller("SettingsNewChildController", ["$scope", "$location", "ChildRepository", function($scope, $location, $childRepository){
