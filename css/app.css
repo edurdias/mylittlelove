@@ -1,0 +1,149 @@
+body {
+    padding-top: 161px;
+    padding-bottom: 70px;
+}
+
+.list-group {
+    margin-bottom: 0;
+}
+
+.list-group .list-group-item{
+
+}
+
+.page-header {
+    background: url("../img/background.jpg");
+    margin:0;
+    padding:0;
+    min-height: 70px;
+}
+
+.page-header .child {
+    padding:10px;
+}
+
+.page-header .child .photo {
+    float:left;
+    width:50px;
+    height:50px;
+}
+
+.page-header .child .name {
+    display: block;
+    /*margin-left:55px;*/
+
+}
+
+.page-header .child .name h1 {
+    font-size:30px;
+    line-height: 50px;
+    margin: 0 0 0 10px;
+}
+
+.page-header .logo {
+    float:right;
+}
+
+.page-header .logo h2 {
+    font-size:14px;
+    line-height: 30px;
+    margin-right:10px;
+    font-weight: bold;
+    color:#d3d3d3;
+}
+
+.navigation{
+    margin:0;
+    padding:0;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    width:100%;
+    border:solid 1px #eaeaea;
+    border-top:0;
+    background-color: #fff;
+}
+
+.navigation>li {
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+
+    padding:10px;
+
+    text-align: center;
+    list-style-type: none;
+}
+
+.navigation .glyphicon {
+    font-size:48px;
+    color:#373737;
+}
+
+.navigation>li>a>i.feeding,
+.navigation>li>a>i.diapers {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    content:"";
+    width:64px;
+    height:64px;
+}
+
+.navigation>li>a>i.feeding{
+    background:url("../img/bottle.png");
+    background-size: 64px 64px;
+}
+
+.navigation>li>a>i.diapers{
+    background:url("../img/safety-pin.png");
+    background-size: 64px 64px;
+}
+
+
+.navigation>li.active .glyphicon {
+    color:#ffffff;
+}
+
+.navigation>li.active.home {
+    background-color: #9dbab8;
+}
+
+.navigation>li.active.feeding{
+    background-color: #9dbab8;
+}
+
+.navigation>li.active.diapers {
+    background-color: #9dbab8;
+}
+
+.navigation>li.active.settings {
+    background-color: #9dbab8;
+}
+
+
+.navigation>li.active.feeding>a>i.feeding{
+    background:url("../img/bottle-white.png");
+    background-size: 64px 64px;
+}
+
+
+
+.navigation>li.active.diapers>a>i.diapers{
+    background:url("../img/safety-pin-white.png");
+    background-size: 64px 64px;
+}
+
+.navbar-fixed-bottom{
+    background: #fff url("../img/background.jpg");
+    border-top: solid 1px #ddd;
+    padding:10px;
+}
+
+.container {
+    padding:10px;
+}

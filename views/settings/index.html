@@ -1,0 +1,37 @@
+<div ng-controller="SettingsController">
+    <div class="panel panel-default">
+        <div class="panel-heading">Children</div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="child in children">
+
+                    <button class="btn btn-default pull-right" ng-click="deleteChild(child)">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </button>
+
+                    <img class="thumbnail" ng-show="child.picture" src="data:image/jpeg;base64,{{child.picture}}" />
+                    <h4>{{child.name}}</h4>
+                </li>
+            </ul>
+        </div>
+        <div class="panel-footer">
+            <button class="btn btn-default" ng-click="addNewChild()">
+                <i class="glyphicon glyphicon-plus-sign"></i> Add New Child
+            </button>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Units</div>
+        <div class="panel-body">
+            <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="radio" name="units" ng-checked="getUnit() == 'imperial'" ng-click="setUnit('imperial')"> Imperial (fl oz)
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="units" ng-checked="getUnit() == 'metric'" ng-click="setUnit('metric')"> Metric (ml)
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
