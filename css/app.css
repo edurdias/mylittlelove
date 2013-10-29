@@ -114,24 +114,21 @@ body {
 }
 
 .navigation>li.active.feeding{
-    background-color: #9dbab8;
+    background-color: #f5d954;
 }
 
 .navigation>li.active.diapers {
-    background-color: #9dbab8;
+    background-color: #9ddddc;
 }
 
 .navigation>li.active.settings {
-    background-color: #9dbab8;
+    background-color: #a46f43;
 }
-
 
 .navigation>li.active.feeding>a>i.feeding{
     background:url("../img/bottle-white.png");
     background-size: 64px 64px;
 }
-
-
 
 .navigation>li.active.diapers>a>i.diapers{
     background:url("../img/safety-pin-white.png");
@@ -146,4 +143,23 @@ body {
 
 .container {
     padding:10px;
+}
+
+
+.settings-container .panel-heading {
+    background-color: rgba(164, 111, 67, 0.8);
+    color:#fff;
+}
+
+.settings-container .panel-footer {
+    background-color: rgba(164, 111, 67, 0.2);
+}
+
+.settings-container .btn-default:hover,
+.settings-container .btn-default:focus,
+.settings-container .btn-default:active,
+.settings-container .btn-default.active,
+.settings-container .open .dropdown-toggle.btn-default{
+    background-color: rgba(164, 111, 67, 0.4);
+    color:#fff;
 }
