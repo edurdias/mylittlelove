@@ -169,7 +169,18 @@ body {
     background-color: rgba(245, 217, 84, 0.4);
 }
 
+.feeding-container .btn-primary {
+    background-color: rgb(245, 217, 84);
+    border-color:#adadad;
+    color:#333;
+}
 
+.feeding-container .stopwatch {
+    font-size: 25px;
+    padding:10px;
+    text-align: center;
+    margin:10px 0;
+}
 
 .settings-container .panel-heading {
     background-color: rgba(164, 111, 67, 0.8);
