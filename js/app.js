@@ -14,9 +14,21 @@ mll.config(["$routeProvider", function ($route) {
         where : "feeding"
     });
 
+    $route.when("/feeding/new-activity", {
+        templateUrl: "views/feeding/new-activity.html",
+        controller: "FeedingNewActivityController",
+        where : "feeding"
+    });
+
     $route.when("/diapers", {
         templateUrl: "views/diapers/index.html",
         controller: "DiapersController",
+        where : "diapers"
+    });
+
+    $route.when("/diapers/new-activity", {
+        templateUrl: "views/diapers/new-activity.html",
+        controller: "DiapersNewActivityController",
         where : "diapers"
     });
 

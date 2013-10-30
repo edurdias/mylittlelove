@@ -7,7 +7,7 @@ var Child = {
 
 var Activity = {
     id : "int",
-    childId : "int",
+    child : "int",
     type : "string",
     time : "timestamp"
 };
@@ -21,5 +21,10 @@ var Bottlefeeding = ["Activity", {
     type : "formula|breast milk|milk|mix",
     quantity : "int",
     unit : "ml|fl oz"
+}];
+
+var DiaperChange = ["Activity", {
+    wet : "bool",
+    dirty : "bool"
 }];
 

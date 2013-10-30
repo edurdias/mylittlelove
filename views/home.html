@@ -1,14 +1,19 @@
 <div class="home-container">
     <table class="table table-bordered activities" ng-show="activities">
         <tbody>
-            <tr ng-repeat="activity in activities">
-                <td class="{{activity.type}}"></td>
-                <td>{{activity.description}}</td>
-                <td>{{activity.time}}</td>
-            </tr>
+        <tr ng-repeat="activity in activities">
+            <td class="{{activity.type}}"></td>
+            <td>{{activity.description}}</td>
+            <td>{{activity.time}}</td>
+        </tr>
         </tbody>
     </table>
-    <div class="well well-lg text-center" ng-show="!activities">
+    <div class="well well-lg text-center" ng-show="currentChild && !activities">
         Click the <i class="glyphicon glyphicon-plus"></i> button to add a new activity!
     </div>
+
+    <div class="well well-lg text-center" ng-show="!currentChild">
+        You need to add your little love, <br /> please click in the button on the top left.
+    </div>
+
 </div>

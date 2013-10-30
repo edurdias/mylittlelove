@@ -1,5 +1,9 @@
-mll.controller("HomeController", ["$scope", function($scope){
+mll.controller("HomeController", ["$scope", "$cll", function($scope, $cll){
+    $scope.currentChild = null;
 
+    $scope.$watch(function(){ return $cll.current; }, function(child){
+        $scope.currentChild = child;
+    });
 }]);
 
 mll.controller("FeedingController", ["$scope", function($scope){
@@ -37,6 +41,7 @@ mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", 
 
     $scope.getUnit = function(){
         var units = window.localStorage.getItem("units");
+        console.log(!units);
         if(!units)
         {
             $scope.setUnit("metric");
@@ -84,8 +89,17 @@ mll.controller("HeaderController", ["$scope", "$location", "$cll", function($sco
     }
 }]);
 
-mll.controller("NavigationController", ["$scope", "$route", function($scope, $route){
+mll.controller("NavigationController", ["$scope", "$route", "$location", function($scope, $route, $location){
     $scope.is = function(name){
         return  $route.current && $route.current.$$route ? $route.current.$$route.where == name : false;
     };
+
+    $scope.addActivity = function(){
+        $location.path("/new-activity");
+    };
+}]);
+
+mll.controller("NewActivityController", ["$scope", "$route", "$location", function($scope, $route, $location){
+
+
 }]);
