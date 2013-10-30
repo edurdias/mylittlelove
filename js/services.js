@@ -29,15 +29,11 @@ mll.service("$format", [function(){
             return hours + ":" + minutes + ":" + seconds;
         },
         activity : function(activity){
-            switch (activity.type){
-                case "feeding":
-                         switch (activity.feedingType){
-                             case "nursing":
-                                 return "Nursed " + moment.duration(activity.duration).humanize() + " on "  + activity.side;
-                                 break;
-                         }
-                    break;
+            if(activity.type == "feeding"){
+                if (activity.feedingType == "nursing")
+                    return "Nursed " + moment.duration(activity.duration).humanize() + " on "  + activity.side;
             }
+            return "";
         }
     };
 }]);
@@ -49,6 +45,12 @@ mll.service("$db", [function(){
             db.transaction(function(tx){
                 tx.executeSql(sql, parameters, callback);
             });
+        },
+        executeAll : function(sqls, parameters, callback){
+            db.transaction(function(tx){
+                for(var i=0;i<sqls.length;i++)
+                    tx.executeSql(sqls[i], parameters[i]);
+            }, null, callback);
         }
     };
 }]);
@@ -64,19 +66,21 @@ mll.service("ActivityRepository", ["$db", "$format", function ($db, $format) {
 
     $db.execute("create table if not exists activities (id integer primary key autoincrement, child integer, type, time, otherProperties)");
 
-    return {
+    var service = {
         schema : [Activity],
+        parse : function (item) {
+            item.moment = moment(item.time);
+            jQuery.extend(item, JSON.parse(item.otherProperties));
+            item.description = $format.activity(item);
+            delete item.otherProperties;
+            return item;
+        },
         all : function(child, callback){
             $db.execute("select id, type, time, otherProperties from activities where child = ? order by time desc ", [child.id], function(tx, result){
                 var items = [];
-                for(var i=0;i<result.rows.length;i++){
-                    var item = result.rows.item(i);
-                    item.moment = moment(item.time);
-                    jQuery.extend(item, JSON.parse(item.otherProperties));
-                    item.description = $format.activity(item);
-                    delete item.otherProperties;
-                    items.push(item);
-                }
+                for(var i=0;i<result.rows.length;i++)
+                    items.push(service.parse(result.rows.item(i)));
+
                 if(callback)
                     callback(items);
             });
@@ -85,9 +89,11 @@ mll.service("ActivityRepository", ["$db", "$format", function ($db, $format) {
             $db.execute("insert into activities (child, type, time, otherProperties) values (?, ?, ?, ?)", [activity.child, activity.type, activity.time, JSON.stringify(otherProperties)]);
         }
     };
+
+    return service;
 }]);
 
-mll.service("FeedingActivityRepository", ["$cll", "ActivityRepository", function ($cll, $repository) {
+mll.service("FeedingActivityRepository", ["$db", "$cll", "ActivityRepository", function ($db, $cll, $repository) {
    //domain schema (reference only)
     var Activity = {
         id : "int",
@@ -113,6 +119,16 @@ mll.service("FeedingActivityRepository", ["$cll", "ActivityRepository", function
 
     return {
         schema : [Nursing, Bottle],
+        all : function(child, callback){
+            $db.execute("select id, type, time, otherProperties from activities where child = ? and type='feeding' order by time desc ", [child.id], function(tx, result){
+                var items = [];
+                for(var i=0;i<result.rows.length;i++)
+                    items.push($repository.parse(result.rows.item(i)));
+
+                if(callback)
+                    callback(items);
+            });
+        },
         addNursing : function(time, side, duration){
             $repository.add({ child : $cll.current.id, type : "feeding", time : time },{ feedingType :"nursing", side : side, duration : duration});
         },
@@ -154,7 +170,7 @@ mll.service("ChildRepository", ["$db", function ($db) {
            });
         },
         delete : function(id, callback){
-            $db.execute("delete from children where id = ? ", [id], function () {
+            $db.executeAll(["delete from children where id = ? ", "delete from activities where child = ?"], [[id],[id]], function () {
                 if(callback)
                     callback();
             });

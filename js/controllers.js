@@ -5,14 +5,23 @@ mll.controller("HomeController", ["$scope", "$cll", "ActivityRepository", functi
         $scope.currentChild = child;
         if(child)
             $repository.all(child, function(activities){
-                $scope.activities = activities;
+                $scope.activities = activities.length == 0 ? null : activities;
                 $scope.$apply();
             });
     });
 }]);
 
-mll.controller("FeedingController", ["$scope", function($scope){
-
+mll.controller("FeedingController", ["$scope", "$cll", "FeedingActivityRepository", function($scope, $cll, $repository){
+    $scope.currentChild = null;
+    $scope.activities = null;
+    $scope.$watch(function(){ return $cll.current; }, function(child){
+        $scope.currentChild = child;
+        if(child)
+            $repository.all(child, function(activities){
+                $scope.activities = activities.length == 0 ? null : activities;
+                $scope.$apply();
+            });
+    });
 }]);
 
 mll.controller("FeedingNewActivityController", ["$scope", function($scope){

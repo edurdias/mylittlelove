@@ -1,4 +1,5 @@
 body {
+    padding-top: 70px;
     padding-bottom: 70px;
 }
 
@@ -152,6 +153,18 @@ body {
     padding:10px;
 }
 
+.panel-heading, .panel-footer, .panel-body, .list-group-item {
+    padding:5px;
+}
+
+.list-group-item {
+    padding-left:10px;
+}
+
+.list-group-item .pull-right {
+    margin-top:3px;
+}
+
 .home-container .panel-heading {
     background-color: rgba(157, 221, 220, 0.8);
     color:#fff;
@@ -163,7 +176,6 @@ body {
 
 .home-container .activities tr.feeding {
     border-left: solid 10px #f5d954;
-    border-right: solid 1px #f5d954;
 }
 
 .home-container .activities tr:last-child {
@@ -177,6 +189,10 @@ body {
 
 .feeding-container .panel-footer {
     background-color: rgba(245, 217, 84, 0.2);
+}
+
+.feeding-container .activities tr:last-child {
+    border-bottom: solid 1px #dddddd;
 }
 
 .feeding-container .btn-default:hover,
