@@ -14,6 +14,34 @@ mll.service("$cll", ["$rootScope", "ChildRepository", function($root, $repositor
     return cll;
 }]);
 
+mll.service("$format", [function(){
+    return {
+        time : function (duration) {
+            var milliseconds = parseInt((duration%1000)/100)
+                , seconds = parseInt((duration/1000)%60)
+                , minutes = parseInt((duration/(1000*60))%60)
+                , hours = parseInt((duration/(1000*60*60))%24);
+
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            return hours + ":" + minutes + ":" + seconds;
+        },
+        activity : function(activity){
+            switch (activity.type){
+                case "feeding":
+                         switch (activity.feedingType){
+                             case "nursing":
+                                 return "Nursed " + moment.duration(activity.duration).humanize() + " on "  + activity.side;
+                                 break;
+                         }
+                    break;
+            }
+        }
+    };
+}]);
+
 mll.service("$db", [function(){
     var db = window.openDatabase("mylittlelove", "1.0", "My Little Love", 5*1024*1024);
     return {
@@ -25,27 +53,71 @@ mll.service("$db", [function(){
     };
 }]);
 
-mll.service("ActivityRepository", ["$db", function ($db) {
+mll.service("ActivityRepository", ["$db", "$format", function ($db, $format) {
     // domain schema (reference only)
     var Activity = {
         id : "int",
         child : "int",
-        type : "string",
+        type : "feeding|diapers",
         time : "timestamp"
     };
 
-    $db.execute("create table if not exists activity (id integer primary key autoincrement, child integer, type, time, otherProperties)");
+    $db.execute("create table if not exists activities (id integer primary key autoincrement, child integer, type, time, otherProperties)");
 
     return {
-        schema : Activity,
+        schema : [Activity],
         all : function(child, callback){
-            $db.execute("select id, type, time from activity where child = ? ", [child], function(tx, result){
+            $db.execute("select id, type, time, otherProperties from activities where child = ? order by time desc ", [child.id], function(tx, result){
                 var items = [];
-                for(var i=0;i<result.rows.length;i++)
-                    items.push(result.rows.item(i));
+                for(var i=0;i<result.rows.length;i++){
+                    var item = result.rows.item(i);
+                    item.moment = moment(item.time);
+                    jQuery.extend(item, JSON.parse(item.otherProperties));
+                    item.description = $format.activity(item);
+                    delete item.otherProperties;
+                    items.push(item);
+                }
                 if(callback)
                     callback(items);
             });
+        },
+        add : function(activity, otherProperties){
+            $db.execute("insert into activities (child, type, time, otherProperties) values (?, ?, ?, ?)", [activity.child, activity.type, activity.time, JSON.stringify(otherProperties)]);
+        }
+    };
+}]);
+
+mll.service("FeedingActivityRepository", ["$cll", "ActivityRepository", function ($cll, $repository) {
+   //domain schema (reference only)
+    var Activity = {
+        id : "int",
+        child : "int",
+        type : "feeding|diapers",
+        time : "timestamp"
+    };
+
+    var Feeding = ["Activity", {
+        feedingType : "nursing|bottle"
+    }];
+
+    var Nursing = ["Feeding", {
+        side : "left|right",
+        duration : "int"
+    }];
+
+    var Bottle = ["Feeding", {
+        content : "formula|breast milk|milk|mix",
+        quantity : "int",
+        unit : "ml|fl oz"
+    }];
+
+    return {
+        schema : [Nursing, Bottle],
+        addNursing : function(time, side, duration){
+            $repository.add({ child : $cll.current.id, type : "feeding", time : time },{ feedingType :"nursing", side : side, duration : duration});
+        },
+        addBottle : function(){
+
         }
     };
 }]);
@@ -62,7 +134,7 @@ mll.service("ChildRepository", ["$db", function ($db) {
     $db.execute("create table if not exists children (id integer primary key autoincrement, name, picture)");
 
     return {
-        schema : Child,
+        schema : [Child],
         add : function(name, picture){
             $db.execute("insert into children (name, picture) values (?,?)", [name, picture]);
         },

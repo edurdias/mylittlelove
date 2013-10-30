@@ -1,26 +1,26 @@
-<div ng-controller="">
+<div ng-controller="FeedingNewNursingActivityController">
     <div class="btn-group btn-group-justified" data-toggle="buttons">
-        <label class="btn btn-default btn-lg" ng-click="side='left'" >
+        <label class="btn btn-default btn-lg" ng-click="setSide('left')" ng-class="{ disabled : isRunning }" >
             <input type="radio" name="type" /> Left
         </label>
-        <label class="btn btn-default btn-lg" ng-click="side='right'">
+        <label class="btn btn-default btn-lg" ng-click="setSide('right')" ng-class="{ disabled : isRunning }">
             <input type="radio" name="type" /> Right
         </label>
     </div>
 
     <div class="well stopwatch">
-        <i class="glyphicon glyphicon-time"></i>  00:00
+        <i class="glyphicon glyphicon-time"></i>  {{readableTimeElapsed}}
     </div>
 
-    <button class="btn btn-default btn-lg btn-block" ng-class="{ disabled : !side }">
-        Start
+    <button class="btn btn-lg btn-block" ng-class="{ disabled : !getSide(), 'btn-primary' : !isRunning, 'btn-danger' : isRunning }" ng-click="toggle($event)">
+        {{(!isRunning ? "Start" : "Stop" )}}
     </button>
 
     <div class="btn btn-block">
-        <button class="btn btn-primary btn-lg" ng-class="{ disabled : !side }">
+        <button class="btn btn-primary btn-lg" ng-class="{ disabled : !getSide() || isRunning }" ng-click="save()">
             Save
         </button>
-        <button class="btn btn-default btn-lg" ng-class="{ disabled : !side }">
+        <button class="btn btn-default btn-lg" ng-class="{ disabled : !getSide() || isRunning }" ng-click="cancel()">
             Cancel
         </button>
     </div>

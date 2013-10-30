@@ -1,8 +1,13 @@
-mll.controller("HomeController", ["$scope", "$cll", function($scope, $cll){
+mll.controller("HomeController", ["$scope", "$cll", "ActivityRepository", function($scope, $cll, $repository){
     $scope.currentChild = null;
-
+    $scope.activities = null;
     $scope.$watch(function(){ return $cll.current; }, function(child){
         $scope.currentChild = child;
+        if(child)
+            $repository.all(child, function(activities){
+                $scope.activities = activities;
+                $scope.$apply();
+            });
     });
 }]);
 
@@ -18,6 +23,57 @@ mll.controller("FeedingNewActivityController", ["$scope", function($scope){
     $scope.getTypePartialUrl = function(){
         return $scope.type ? "views/feeding/new-activity-" + $scope.type + ".html" : "";
     }
+}]);
+
+mll.controller("FeedingNewNursingActivityController", ["$scope", "$location", "$format", "FeedingActivityRepository", function($scope, $location, $format, $repository){
+
+    $scope.isRunning = false;
+    $scope.side = null;
+    $scope.handler = null;
+    $scope.startTime = null;
+    $scope.timeElapsed = 0;
+    $scope.readableTimeElapsed = $format.time(0);
+
+    $scope.setSide = function(side){
+        $scope.side = side;
+    };
+
+    $scope.getSide = function(){
+        return $scope.side;
+    };
+
+    $scope.toggle = function(){
+        if(!$scope.isRunning){
+            $scope.start();
+        }else{
+            $scope.stop();
+        }
+    };
+
+    $scope.start = function(){
+        $scope.isRunning = true;
+        $scope.startTime = !$scope.startTime ? Date.now() : $scope.startTime;
+        $scope.handler = setInterval(function(){
+            $scope.timeElapsed = $scope.timeElapsed + 1000;
+            $scope.readableTimeElapsed = $format.time($scope.timeElapsed);
+            $scope.$apply();
+        }, 1000);
+    };
+
+    $scope.stop = function(){
+        $scope.isRunning = false;
+        if($scope.handler)
+            clearInterval($scope.handler);
+    };
+
+    $scope.save = function(){
+        $repository.addNursing($scope.startTime, $scope.side, $scope.timeElapsed);
+        $location.path("/feeding");
+    };
+
+    $scope.cancel = function(){
+        history.back();
+    };
 }]);
 
 mll.controller("DiapersController", ["$scope", function($scope){
