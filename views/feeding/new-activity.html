@@ -1,0 +1,23 @@
+<div class="feeding-container">
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <div class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-default btn-lg" ng-click="setType('nursing')">
+                    <input type="radio" name="type" /> Nursing
+                </label>
+                <label class="btn btn-default btn-lg" ng-click="setType('bottle')">
+                    <input type="radio" name="type" /> Bottle
+                </label>
+            </div>
+        </div>
+        <div class="panel-footer" ng-show="!type"></div>
+    </div>
+
+    <div class="panel panel-default" ng-show="type">
+        <div class="panel-body" ng-include="getTypePartialUrl()">
+
+        </div>
+        <div class="panel-footer"></div>
+    </div>
+</div>

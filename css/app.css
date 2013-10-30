@@ -152,6 +152,24 @@ body {
     padding:10px;
 }
 
+.feeding-container .panel-heading {
+    background-color: rgba(245, 217, 84, 0.8);
+    color:#fff;
+}
+
+.feeding-container .panel-footer {
+    background-color: rgba(245, 217, 84, 0.2);
+}
+
+.feeding-container .btn-default:hover,
+.feeding-container .btn-default:focus,
+.feeding-container .btn-default:active,
+.feeding-container .btn-default.active,
+.feeding-container .open .dropdown-toggle.btn-default{
+    background-color: rgba(245, 217, 84, 0.4);
+}
+
+
 
 .settings-container .panel-heading {
     background-color: rgba(164, 111, 67, 0.8);

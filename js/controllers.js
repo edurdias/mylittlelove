@@ -10,6 +10,16 @@ mll.controller("FeedingController", ["$scope", function($scope){
 
 }]);
 
+mll.controller("FeedingNewActivityController", ["$scope", function($scope){
+    $scope.setType = function(type){
+        $scope.type = type;
+    };
+
+    $scope.getTypePartialUrl = function(){
+        return $scope.type ? "views/feeding/new-activity-" + $scope.type + ".html" : "";
+    }
+}]);
+
 mll.controller("DiapersController", ["$scope", function($scope){
 
 }]);
