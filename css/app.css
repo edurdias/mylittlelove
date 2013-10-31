@@ -182,6 +182,10 @@ body {
     border-left: solid 10px #f5d954;
 }
 
+.home-container .activities tr.diapers {
+    border-left: solid 10px #dcbff5;
+}
+
 .home-container .activities tr:last-child {
     border-bottom: solid 1px #dddddd;
 }
@@ -220,6 +224,36 @@ body {
     text-align: center;
     margin:10px 0;
 }
+
+
+.diapers-container .panel-heading {
+    background-color: rgba(220, 191, 245, 0.8);
+    color:#fff;
+}
+
+.diapers-container .panel-footer {
+    background-color: rgba(220, 191, 245, 0.2);
+}
+
+.diapers-container .activities tr:last-child {
+    border-bottom: solid 1px #dddddd;
+}
+
+.diapers-container .btn-default:hover,
+.diapers-container .btn-default:focus,
+.diapers-container .btn-default:active,
+.diapers-container .btn-default.active,
+.diapers-container .input-group-addon,
+.diapers-container .open .dropdown-toggle.btn-default {
+    background-color: rgba(220, 191, 245, 0.4);
+}
+
+.diapers-container .btn-primary {
+    background-color: rgb(220, 191, 245);
+    border-color:#adadad;
+    color:#333;
+}
+
 
 .settings-container .panel-heading {
     background-color: rgba(164, 111, 67, 0.8);

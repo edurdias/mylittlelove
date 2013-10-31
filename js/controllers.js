@@ -85,7 +85,7 @@ mll.controller("FeedingNewNursingActivityController", ["$scope", "$location", "$
     };
 }]);
 
-mll.controller("FeedingNewBottleActivityController", ["$scope", "$location", "$pref", "$cll", "FeedingActivityRepository", function($scope, $location, $pref, $cll, $repository){
+mll.controller("FeedingNewBottleActivityController", ["$scope", "$pref", "$cll", "FeedingActivityRepository", function($scope, $pref, $cll, $repository){
 
     $scope.message = null;
     $scope.content = null;
@@ -127,9 +127,55 @@ mll.controller("FeedingNewBottleActivityController", ["$scope", "$location", "$p
     };
 }]);
 
-mll.controller("DiapersController", ["$scope", function($scope){
-
+mll.controller("DiapersController", ["$scope", "$cll", "DiapersActivityRepository", function($scope, $cll, $repository){
+    $scope.currentChild = null;
+    $scope.activities = null;
+    $scope.$watch(function(){ return $cll.current; }, function(child){
+        $scope.currentChild = child;
+        if(child)
+            $repository.all(child, function(activities){
+                $scope.activities = activities.length == 0 ? null : activities;
+                $scope.$apply();
+            });
+    });
 }]);
+
+
+mll.controller("DiapersNewActivityController", ["$scope", "$cll", "DiapersActivityRepository", function($scope, $cll, $repository){
+
+    $scope.wet = false;
+    $scope.dirty = false;
+    $scope.time = null;
+    $scope.message = null;
+
+    $scope.save = function(){
+
+        console.log($scope.wet, $scope.dirty, $scope.time);
+
+        if(!$scope.wet && !$scope.dirty){
+            $scope.message = "Was " + $cll.current.name + " wet, dirty or both?";
+            return;
+        }
+
+        var time = moment($scope.time);
+
+        if(!time.isValid()){
+            $scope.message = "What was the time you changed " + $cll.current.name + "?";
+            return;
+        }
+
+        time.local();
+
+        $repository.add(time, $scope.wet, $scope.dirty);
+
+        history.back();
+    };
+
+    $scope.cancel = function(){
+        history.back();
+    };
+}]);
+
 
 mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", "$cll", "$pref", function($scope, $location, $repository, $cll, $pref){
     $scope.children = null;

@@ -12,12 +12,16 @@ var Activity = {
     time : "timestamp"
 };
 
-var Breastfeeding = ["Activity", {
+var Feeding = ["Activity", {
+    feedingType : "nursing|bottle"
+}];
+
+var Breastfeeding = ["Feeding", {
     side : "left|right",
     duration : "int"
 }];
 
-var Bottle = ["Activity", {
+var Bottle = ["Feeding", {
     content : "string",
     quantity : "int",
     unit : "ml|fl oz"

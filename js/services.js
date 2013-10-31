@@ -35,6 +35,11 @@ mll.service("$format", [function(){
                 if (activity.feedingType == "bottle")
                     return "Given " + activity.quantity + " " + activity.unit + " of " + activity.content;
             }
+
+            if(activity.type == "diapers"){
+                return (activity.wet && activity.dirty) ? "Wet and Dry" : activity.wet ? "Wet" : "Dirty";
+            }
+
             return "";
         }
     };
@@ -77,18 +82,10 @@ mll.service("$db", [function(){
 }]);
 
 mll.service("ActivityRepository", ["$db", "$format", function ($db, $format) {
-    // domain schema (reference only)
-    var Activity = {
-        id : "int",
-        child : "int",
-        type : "feeding|diapers",
-        time : "timestamp"
-    };
 
     $db.execute("create table if not exists activities (id integer primary key autoincrement, child integer, type, time, otherProperties)");
 
     var service = {
-        schema : [Activity],
         parse : function (item) {
             item.moment = moment(item.time);
             jQuery.extend(item, JSON.parse(item.otherProperties));
@@ -97,7 +94,7 @@ mll.service("ActivityRepository", ["$db", "$format", function ($db, $format) {
             return item;
         },
         all : function(child, callback){
-            $db.execute("select id, type, time, otherProperties from activities where child = ? order by time desc ", [child.id], function(tx, result){
+            $db.execute("select * from activities where child = ? order by time desc ", [child.id], function(tx, result){
                 var items = [];
                 for(var i=0;i<result.rows.length;i++)
                     items.push(service.parse(result.rows.item(i)));
@@ -115,33 +112,10 @@ mll.service("ActivityRepository", ["$db", "$format", function ($db, $format) {
 }]);
 
 mll.service("FeedingActivityRepository", ["$db", "$cll", "ActivityRepository", function ($db, $cll, $repository) {
-   //domain schema (reference only)
-    var Activity = {
-        id : "int",
-        child : "int",
-        type : "feeding|diapers",
-        time : "timestamp"
-    };
-
-    var Feeding = ["Activity", {
-        feedingType : "nursing|bottle"
-    }];
-
-    var Nursing = ["Feeding", {
-        side : "left|right",
-        duration : "int"
-    }];
-
-    var Bottle = ["Feeding", {
-        content : "formula|breast milk|milk|mix",
-        quantity : "int",
-        unit : "ml|fl oz"
-    }];
 
     return {
-        schema : [Nursing, Bottle],
         all : function(child, callback){
-            $db.execute("select id, type, time, otherProperties from activities where child = ? and type='feeding' order by time desc ", [child.id], function(tx, result){
+            $db.execute("select * from activities where child = ? and type='feeding' order by time desc ", [child.id], function(tx, result){
                 var items = [];
                 for(var i=0;i<result.rows.length;i++)
                     items.push($repository.parse(result.rows.item(i)));
@@ -159,19 +133,31 @@ mll.service("FeedingActivityRepository", ["$db", "$cll", "ActivityRepository", f
     };
 }]);
 
+mll.service("DiapersActivityRepository", ["$db", "$cll", "ActivityRepository", function ($db, $cll, $repository) {
+
+    return {
+        all : function(child, callback){
+            $db.execute("select * from activities where child = ? and type='diapers' order by time desc ", [child.id], function(tx, result){
+                var items = [];
+                for(var i=0;i<result.rows.length;i++)
+                    items.push($repository.parse(result.rows.item(i)));
+
+                if(callback)
+                    callback(items);
+            });
+        },
+        add : function(time, wet, dirty){
+            $repository.add({ child : $cll.current.id, type : "diapers", time : time },{ wet : wet, dirty : dirty });
+        }
+    };
+}]);
+
 
 mll.service("ChildRepository", ["$db", function ($db) {
-    // domain schema (reference only)
-    var Child = {
-        id : "int",
-        name : "string",
-        picture : "string"
-    };
 
     $db.execute("create table if not exists children (id integer primary key autoincrement, name, picture)");
 
     return {
-        schema : [Child],
         add : function(name, picture){
             $db.execute("insert into children (name, picture) values (?,?)", [name, picture]);
         },

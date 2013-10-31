@@ -1,1 +1,19 @@
-diapers
+<div class="diapers-container">
+    <div class="panel panel-default">
+        <div class="panel-heading"></div>
+        <div class="panel-body" >
+            <table class="table activities" ng-show="activities">
+                <tbody>
+                <tr ng-repeat="activity in activities" class="{{activity.type}}">
+                    <td>{{activity.description}}</td>
+                    <td>{{activity.moment.calendar()}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="well well-lg text-center" ng-show="currentChild && !activities">
+                Click the <i class="glyphicon glyphicon-plus"></i> button to add a new activity!
+            </div>
+        </div>
+        <div class="panel-footer"></div>
+    </div>
+</div>
