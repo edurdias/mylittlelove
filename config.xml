@@ -18,10 +18,11 @@
     <gap:splash src="img/splash-xhdpi.png" gap:platform="android" gap:density="xhdpi" />
 
     <!-- Features -->
+    <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/camera"/>
 
     <!-- Plugins -->
-    <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <!--<gap:plugin name="org.apache.cordova.camera" />-->
+    <!--<gap:plugin name="org.apache.cordova.splashscreen" />-->
 
 </widget>
