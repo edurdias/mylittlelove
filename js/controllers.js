@@ -97,6 +97,14 @@ mll.controller("FeedingNewBottleActivityController", ["$scope", "$location", "$p
     for(var i=1;i<=12;i++) $scope.hours.push(i);
     for(var i=1;i<=59;i++) $scope.minutes.push(i);
 
+    $scope.format = function(){
+        var time = moment($scope.time);
+        if(time.isValid()){
+            time.local();
+            $scope.time = time.format("MM/DD/YYYY h:mm A");
+        }
+    };
+
     $scope.save = function(){
         if(!$scope.content || $scope.content.trim() == ""){
             $scope.message = "What did you give to " + $cll.current.name + "?";
