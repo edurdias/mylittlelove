@@ -37,7 +37,7 @@ mll.service("$format", [function(){
             }
 
             if(activity.type == "diapers"){
-                return (activity.wet && activity.dirty) ? "Wet and Dry" : activity.wet ? "Wet" : "Dirty";
+                return (activity.wet && activity.dirty) ? "Wet and Dirty" : activity.wet ? "Wet" : "Dirty";
             }
 
             return "";

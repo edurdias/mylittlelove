@@ -108,6 +108,8 @@ mll.controller("FeedingNewBottleActivityController", ["$scope", "$pref", "$cll",
             return;
         }
 
+        $scope.time = $scope.time.replace("Z", "");
+
         var time = moment($scope.time);
 
         if(!time.isValid()){
@@ -156,6 +158,8 @@ mll.controller("DiapersNewActivityController", ["$scope", "$cll", "DiapersActivi
             $scope.message = "Was " + $cll.current.name + " wet, dirty or both?";
             return;
         }
+
+        $scope.time = $scope.time.replace("Z", "");
 
         var time = moment($scope.time);
 
