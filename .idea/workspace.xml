@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" name="Default" comment="updated">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config.xml" />
-      <change type="DELETED" beforePath="C:\Users\Eduardo\Documents\GitHub\mylittlelove\img\diaper-white.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Eduardo\Documents\GitHub\mylittlelove\img\diaper.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
     </list>
     <ignored path="mylittlelove.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,6 +26,7 @@
     <file path="/fragment.js2" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383172210565" ignored="false" />
     <file path="/new-activity-bottle.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383205733126" ignored="false" />
     <file path="/config.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383253005840" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383253115825" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +121,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="13" selection-start="53" selection-end="53" vertical-scroll-proportion="0.031539887">
+            <state line="23" column="51" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.72541744">
               <folding />
             </state>
           </provider>
@@ -518,7 +515,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="13" selection-start="53" selection-end="53" vertical-scroll-proportion="0.031539887">
+        <state line="23" column="51" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.72541744">
           <folding />
         </state>
       </provider>
