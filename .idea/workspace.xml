@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" name="Default" comment="updated">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
-    </list>
+    <list default="true" id="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" name="Default" comment="updated" />
     <ignored path="mylittlelove.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383109982499" ignored="false" />
@@ -26,7 +24,7 @@
     <file path="/fragment.js2" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383172210565" ignored="false" />
     <file path="/new-activity-bottle.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383205733126" ignored="false" />
     <file path="/config.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383253005840" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383253455694" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383253524052" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,15 +57,6 @@
         <entry file="file://$PROJECT_DIR$/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
             <state line="123" column="44" selection-start="1986" selection-end="1986" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new-activity.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/feeding/new-activity.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="36" selection-start="693" selection-end="693" vertical-scroll-proportion="-10.461538">
               <folding />
             </state>
           </provider>
@@ -121,7 +110,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="54" selection-start="688" selection-end="688" vertical-scroll-proportion="0.28385898">
+            <state line="9" column="54" selection-start="688" selection-end="688" vertical-scroll-proportion="0.27321428">
               <folding />
             </state>
           </provider>
@@ -505,11 +494,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ln/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="4" selection-start="5193" selection-end="5193" vertical-scroll-proportion="0.0">
@@ -517,9 +501,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="54" selection-start="688" selection-end="688" vertical-scroll-proportion="0.28385898">
+        <state line="9" column="54" selection-start="688" selection-end="688" vertical-scroll-proportion="0.27321428">
           <folding />
         </state>
       </provider>
