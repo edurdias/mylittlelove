@@ -8,7 +8,6 @@
     <!-- Preferences -->
     <gap:platform name="android" />
     <preference name="orientation" value="portrait" />
-    <preference name="splash-screen-duration" value="1000"/>
 
     <!-- Icon and Splash Screens -->
     <icon src="icon.png" />
