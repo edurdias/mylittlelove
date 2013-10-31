@@ -153,7 +153,7 @@ body {
     padding:10px;
 }
 
-.table {
+.table, .well {
     margin-bottom: 0;
 }
 

@@ -4,10 +4,7 @@
     <list default="true" id="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" name="Default" comment="updated">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/app.css" afterPath="$PROJECT_DIR$/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/domain.js" afterPath="$PROJECT_DIR$/js/domain.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/settings/index.html" afterPath="$PROJECT_DIR$/views/settings/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/feeding/new-activity-bottle.html" afterPath="$PROJECT_DIR$/views/feeding/new-activity-bottle.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/feeding/new-activity-nursing.html" afterPath="$PROJECT_DIR$/views/feeding/new-activity-nursing.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services.js" afterPath="$PROJECT_DIR$/js/services.js" />
     </list>
     <ignored path="mylittlelove.iws" />
@@ -15,9 +12,9 @@
     <file path="/Dummy.txt" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383109982499" ignored="false" />
     <file path="/index.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383182517258" ignored="false" />
     <file path="/app.js" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383166632851" ignored="false" />
-    <file path="/app.css" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383192468604" ignored="false" />
-    <file path="/controllers.js" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383193468034" ignored="false" />
-    <file path="/services.js" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383182282282" ignored="false" />
+    <file path="/app.css" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383197178482" ignored="false" />
+    <file path="/controllers.js" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383197119878" ignored="false" />
+    <file path="/services.js" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383197300265" ignored="false" />
     <file path="/home.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383168349504" ignored="false" />
     <file path="/diapers.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383010030855" ignored="false" />
     <file path="/feeding.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383010040675" ignored="false" />
@@ -29,9 +26,9 @@
     <file path="/a.dummy" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383163617237" ignored="false" />
     <file path="/new-activity.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383150994190" ignored="false" />
     <file path="/new-activity-nursing.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383160279190" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383194962258" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383204826854" ignored="false" />
     <file path="/fragment.js2" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383172210565" ignored="false" />
-    <file path="/new-activity-bottle.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383194958562" ignored="false" />
+    <file path="/new-activity-bottle.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383197387960" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="41" selection-start="3071" selection-end="3071" vertical-scroll-proportion="0.0">
+            <state line="110" column="37" selection-start="3583" selection-end="3583" vertical-scroll-proportion="0.49169436">
               <folding />
             </state>
           </provider>
@@ -72,7 +69,7 @@
       <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="9" selection-start="4308" selection-end="4308" vertical-scroll-proportion="0.0">
+            <state line="155" column="13" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -96,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new-activity-bottle.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="new-activity-bottle.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/feeding/new-activity-bottle.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="46" selection-start="741" selection-end="741" vertical-scroll-proportion="0.5672727">
+            <state line="22" column="72" selection-start="766" selection-end="770" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
@@ -131,7 +128,7 @@
       <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="40" selection-start="1683" selection-end="1683" vertical-scroll-proportion="0.0">
+            <state line="34" column="51" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -165,12 +162,12 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/views/feeding/new-activity.html" />
         <option value="$PROJECT_DIR$/js/domain.js" />
-        <option value="$PROJECT_DIR$/js/services.js" />
         <option value="$PROJECT_DIR$/views/settings/index.html" />
         <option value="$PROJECT_DIR$/views/feeding/new-activity-nursing.html" />
         <option value="$PROJECT_DIR$/css/app.css" />
-        <option value="$PROJECT_DIR$/js/controllers.js" />
+        <option value="$PROJECT_DIR$/js/services.js" />
         <option value="$PROJECT_DIR$/views/feeding/new-activity-bottle.html" />
+        <option value="$PROJECT_DIR$/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -310,7 +307,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ln/js/controllers.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.html" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -396,14 +393,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25986597" sideWeight="0.60267115" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39732888" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39732888" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -529,20 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/domain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="21" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="40" selection-start="1683" selection-end="1683" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/settings/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="68" selection-start="875" selection-end="875" vertical-scroll-proportion="0.61406845">
@@ -564,13 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="9" selection-start="4308" selection-end="4308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/settings/newChild.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="12" selection-start="167" selection-end="264" vertical-scroll-proportion="-2.6153846">
@@ -578,16 +554,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+    <entry file="file://$PROJECT_DIR$/js/domain.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="41" selection-start="3071" selection-end="3071" vertical-scroll-proportion="0.0">
+        <state line="20" column="21" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="13" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="51" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/feeding/new-activity-bottle.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="46" selection-start="741" selection-end="741" vertical-scroll-proportion="0.5672727">
+        <state line="22" column="72" selection-start="766" selection-end="770" vertical-scroll-proportion="-6.5384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="37" selection-start="3583" selection-end="3583" vertical-scroll-proportion="0.49169436">
           <folding />
         </state>
       </provider>

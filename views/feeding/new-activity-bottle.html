@@ -12,7 +12,7 @@
     <div class="form-group">
         <label>Quantity</label>
         <div class="input-group">
-            <input type="text" class="form-control" ng-model="content" placeholder="example: {{(unit == 'ml' ? '30' : '3')}}{{unit}}" />
+            <input type="number" class="form-control" ng-model="quantity" placeholder="example: {{(unit == 'ml' ? '30' : '3')}}{{unit}}" />
             <span class="input-group-addon">{{unit}}</span>
         </div>
 
@@ -20,7 +20,7 @@
 
     <div class="form-group">
         <label>Time</label>
-        <input type="time" class="form-control" ng-model="time" />
+        <input type="datetime-local" class="form-control" ng-model="time" />
     </div>
 
     <div class="text-center">

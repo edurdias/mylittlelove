@@ -85,9 +85,11 @@ mll.controller("FeedingNewNursingActivityController", ["$scope", "$location", "$
     };
 }]);
 
-mll.controller("FeedingNewBottleActivityController", ["$scope", "$location", "$pref", "FeedingActivityRepository", function($scope, $location, $pref, $repository){
+mll.controller("FeedingNewBottleActivityController", ["$scope", "$location", "$pref", "$cll", "FeedingActivityRepository", function($scope, $location, $pref, $cll, $repository){
 
     $scope.message = null;
+    $scope.content = null;
+    $scope.quantity = null;
     $scope.unit = $pref.get("units");
     $scope.hours = [];
     $scope.minutes = [];
@@ -96,6 +98,25 @@ mll.controller("FeedingNewBottleActivityController", ["$scope", "$location", "$p
     for(var i=1;i<=59;i++) $scope.minutes.push(i);
 
     $scope.save = function(){
+        if(!$scope.content || $scope.content.trim() == ""){
+            $scope.message = "What did you give to " + $cll.current.name + "?";
+            return;
+        }
+
+        if(!$scope.quantity || isNaN($scope.quantity)){
+            $scope.message = "How much " + $scope.content + " did you give to " + $cll.current.name + "?";
+            return;
+        }
+
+        var time = moment($scope.time);
+
+        if(!time.isValid()){
+            $scope.message = "What was the time you gave " + $scope.content + " to " + $cll.current.name + "?";
+            return;
+        }
+
+        $repository.addBottle($scope.content, $scope.quantity, $scope.unit, time.valueOf());
+
         history.back();
     };
 

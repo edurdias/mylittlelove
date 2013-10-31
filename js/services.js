@@ -32,6 +32,8 @@ mll.service("$format", [function(){
             if(activity.type == "feeding"){
                 if (activity.feedingType == "nursing")
                     return "Nursed " + moment.duration(activity.duration).humanize() + " on "  + activity.side;
+                if (activity.feedingType == "bottle")
+                    return "Given " + activity.quantity + " " + activity.unit + " of " + activity.content;
             }
             return "";
         }
@@ -151,8 +153,8 @@ mll.service("FeedingActivityRepository", ["$db", "$cll", "ActivityRepository", f
         addNursing : function(time, side, duration){
             $repository.add({ child : $cll.current.id, type : "feeding", time : time },{ feedingType :"nursing", side : side, duration : duration});
         },
-        addBottle : function(){
-
+        addBottle : function(content, quantity, unit, time){
+            $repository.add({ child : $cll.current.id, type : "feeding", time : time },{ feedingType :"bottle", content : content, quantity : quantity, unit : unit });
         }
     };
 }]);
