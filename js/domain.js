@@ -18,7 +18,7 @@ var Breastfeeding = ["Activity", {
 }];
 
 var Bottle = ["Activity", {
-    content : "formula|breast milk|milk|mix",
+    content : "string",
     quantity : "int",
     unit : "ml|fl oz"
 }];

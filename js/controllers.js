@@ -85,11 +85,30 @@ mll.controller("FeedingNewNursingActivityController", ["$scope", "$location", "$
     };
 }]);
 
+mll.controller("FeedingNewBottleActivityController", ["$scope", "$location", "$pref", "FeedingActivityRepository", function($scope, $location, $pref, $repository){
+
+    $scope.message = null;
+    $scope.unit = $pref.get("units");
+    $scope.hours = [];
+    $scope.minutes = [];
+
+    for(var i=1;i<=12;i++) $scope.hours.push(i);
+    for(var i=1;i<=59;i++) $scope.minutes.push(i);
+
+    $scope.save = function(){
+        history.back();
+    };
+
+    $scope.cancel = function(){
+        history.back();
+    };
+}]);
+
 mll.controller("DiapersController", ["$scope", function($scope){
 
 }]);
 
-mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", "$cll", function($scope, $location, $repository, $cll){
+mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", "$cll", "$pref", function($scope, $location, $repository, $cll, $pref){
     $scope.children = null;
 
     var loadChildren = function(){
@@ -115,18 +134,17 @@ mll.controller("SettingsController", ["$scope", "$location", "ChildRepository", 
     };
 
     $scope.getUnit = function(){
-        var units = window.localStorage.getItem("units");
-        console.log(!units);
+        var units = $pref.get("units");
         if(!units)
         {
-            $scope.setUnit("metric");
-            return "metric";
+            $scope.setUnit("ml");
+            return "ml";
         }
         return units;
     };
 
     $scope.setUnit = function(unitName){
-        window.localStorage.setItem("units", unitName);
+        $pref.set("units", unitName);
     };
 
 }]);

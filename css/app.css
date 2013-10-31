@@ -153,6 +153,10 @@ body {
     padding:10px;
 }
 
+.table {
+    margin-bottom: 0;
+}
+
 .panel-heading, .panel-footer, .panel-body, .list-group-item {
     padding:5px;
 }
@@ -199,7 +203,8 @@ body {
 .feeding-container .btn-default:focus,
 .feeding-container .btn-default:active,
 .feeding-container .btn-default.active,
-.feeding-container .open .dropdown-toggle.btn-default{
+.feeding-container .input-group-addon,
+.feeding-container .open .dropdown-toggle.btn-default {
     background-color: rgba(245, 217, 84, 0.4);
 }
 
@@ -229,7 +234,13 @@ body {
 .settings-container .btn-default:focus,
 .settings-container .btn-default:active,
 .settings-container .btn-default.active,
+.settings-container .input-group-addon,
 .settings-container .open .dropdown-toggle.btn-default{
     background-color: rgba(164, 111, 67, 0.4);
     color:#fff;
+}
+
+
+.margin-top-10px{
+    margin-top:10px;
 }

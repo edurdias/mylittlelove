@@ -38,6 +38,25 @@ mll.service("$format", [function(){
     };
 }]);
 
+mll.service("$pref", [function(){
+    return {
+        set : function(name, value){
+            window.localStorage.setItem(name, value);
+        },
+        get : function(name){
+            return window.localStorage.getItem(name);
+        },
+        remove : function(name){
+            window.localStorage.removeItem(name);
+        },
+        clear : function(){
+            window.localStorage.clear();
+        }
+    };
+}]);
+
+
+
 mll.service("$db", [function(){
     var db = window.openDatabase("mylittlelove", "1.0", "My Little Love", 5*1024*1024);
     return {
