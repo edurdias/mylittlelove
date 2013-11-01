@@ -170,7 +170,7 @@ mll.controller("DiapersNewActivityController", ["$scope", "$cll", "DiapersActivi
 
         time.local();
 
-        $repository.add(time, $scope.wet, $scope.dirty);
+        $repository.add(time.valueOf(), $scope.wet, $scope.dirty);
 
         history.back();
     };
