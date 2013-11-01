@@ -1,26 +1,50 @@
 <div ng-controller="FeedingNewNursingActivityController">
     <div class="btn-group btn-group-justified" data-toggle="buttons">
         <label class="btn btn-default " ng-click="setSide('left')" ng-class="{ disabled : isRunning }" >
-            <input type="radio" name="type" /> Left
+            <input type="radio" /> Left
         </label>
         <label class="btn btn-default " ng-click="setSide('right')" ng-class="{ disabled : isRunning }">
-            <input type="radio" name="type" /> Right
+            <input type="radio" /> Right
         </label>
     </div>
 
-    <div class="well stopwatch">
-        <i class="glyphicon glyphicon-time"></i>  {{readableTimeElapsed}}
+    <div class="margin-top-10px btn-group btn-group-justified" data-toggle="buttons">
+        <label class="btn btn-default active" ng-click="setMode('timer')" ng-class="{ disabled : isRunning }" >
+            <input type="radio"  /> Timer
+        </label>
+        <label class="btn btn-default " ng-click="setMode('manual')" ng-class="{ disabled : isRunning }">
+            <input type="radio" /> Manual
+        </label>
     </div>
 
-    <button class="btn btn-block" ng-class="{ disabled : !getSide(), 'btn-primary' : !isRunning, 'btn-danger' : isRunning }" ng-click="toggle($event)">
-        {{(!isRunning ? "Start" : "Stop" )}}
-    </button>
+    <div ng-show="getMode() == 'timer'">
+        <div class="well stopwatch">
+            <i class="glyphicon glyphicon-time"></i>  {{readableTimeElapsed}}
+        </div>
+
+        <button class="btn btn-block" ng-class="{ disabled : !getSide(), 'btn-primary' : !isRunning, 'btn-danger' : isRunning }" ng-click="toggle($event)">
+            {{(!isRunning ? "Start" : "Stop" )}}
+        </button>
+    </div>
+
+    <div ng-show="getMode() == 'manual'">
+        <div class="well stopwatch">
+            <i class="glyphicon glyphicon-time" style="top:5px;"></i>
+            <input type="number" class="form-control" style="display: inline;width: 70px;" ng-model="hours" placeholder="hours" />
+            <input type="number" class="form-control" style="display: inline;width: 70px;" ng-model="minutes" placeholder="minutes" />
+        </div>
+
+        <div class="form-group">
+            <label>Time</label>
+            <input type="datetime-local" class="form-control" ng-model="manualStartTime" />
+        </div>
+    </div>
 
     <div class="text-center margin-top-10px">
-        <button class="btn btn-primary " ng-class="{ disabled : !getSide() || isRunning }" ng-click="save()">
+        <button class="btn btn-primary " ng-class="{ disabled : !canSave() }" ng-click="save()">
             Save
         </button>
-        <button class="btn btn-default " ng-class="{ disabled : !getSide() || isRunning }" ng-click="cancel()">
+        <button class="btn btn-default " ng-class="{ disabled : isRunning }" ng-click="cancel()">
             Cancel
         </button>
     </div>

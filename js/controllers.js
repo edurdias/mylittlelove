@@ -38,10 +38,44 @@ mll.controller("FeedingNewNursingActivityController", ["$scope", "$location", "$
 
     $scope.isRunning = false;
     $scope.side = null;
+    $scope.mode = 'timer';
     $scope.handler = null;
     $scope.startTime = null;
     $scope.timeElapsed = 0;
-    $scope.readableTimeElapsed = $format.time(0);
+    $scope.readableTimeElapsed = $format.time($scope.timeElapsed);
+    $scope.hours = null;
+    $scope.minutes = null;
+    $scope.manualStartTime = null;
+
+    var updateElapsedTime = function(){
+
+        var time = moment.duration({
+            hours : $scope.hours,
+            minutes : $scope.minutes
+        });
+
+        $scope.timeElapsed = time.valueOf();
+    };
+
+    var hoursWatcher = null;
+    var minWatcher = null;
+    var startTimeWatcher = null;
+
+    $scope.$watch("mode", function(mode){
+        if(mode == 'manual'){
+            hoursWatcher = $scope.$watch("hours", updateElapsedTime);
+            minWatcher = $scope.$watch("minutes", updateElapsedTime);
+            startTimeWatcher = $scope.$watch("manualStartTime", function(){
+                var time = moment($scope.manualStartTime);
+                if(time.isValid())
+                    $scope.startTime = time.valueOf();
+            });
+        }else{
+            if(hoursWatcher) hoursWatcher();
+            if(minWatcher) minWatcher();
+            if(startTimeWatcher) startTimeWatcher();
+        }
+    });
 
     $scope.setSide = function(side){
         $scope.side = side;
@@ -82,6 +116,18 @@ mll.controller("FeedingNewNursingActivityController", ["$scope", "$location", "$
 
     $scope.cancel = function(){
         history.back();
+    };
+
+    $scope.canSave = function(){
+        return $scope.getSide() && ($scope.isRunning || ($scope.startTime && $scope.timeElapsed > 0));
+    };
+
+    $scope.setMode = function(mode){
+        $scope.mode = mode;
+    };
+
+    $scope.getMode = function(){
+        return $scope.mode;
     };
 }]);
 
