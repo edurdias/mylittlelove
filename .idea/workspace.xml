@@ -26,7 +26,7 @@
     <file path="/fragment.js2" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383172210565" ignored="false" />
     <file path="/new-activity-bottle.html" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383205733126" ignored="false" />
     <file path="/config.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383283656144" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383283664044" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="52edb7b1-37e5-4f09-bf08-3e676a5e2a93" time="1383283970098" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +125,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="8" selection-start="197" selection-end="197" vertical-scroll-proportion="0.12615955">
+            <state line="3" column="22" selection-start="185" selection-end="185" vertical-scroll-proportion="0.09461967">
               <folding />
             </state>
           </provider>
@@ -541,7 +541,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="8" selection-start="197" selection-end="197" vertical-scroll-proportion="0.12615955">
+        <state line="3" column="22" selection-start="185" selection-end="185" vertical-scroll-proportion="0.09461967">
           <folding />
         </state>
       </provider>
