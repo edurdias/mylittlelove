@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0"  id="com.edurdias.mylittlelove" versionCode="1" version= "1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0"
+        id="com.edurdias.mylittlelove"
+        versionCode="1.1"
+        version= "1.0.0">
 
     <name>My Little Love</name>
     <description>There is nothing more important to a parent than their baby's health. My Little Love is an application that helps parents to track their baby's activities and health. It will allow daddy and mom to track feeding, diaper changes, sleep time, weight, medicines and pediatrician visits.</description>
