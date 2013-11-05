@@ -68,7 +68,10 @@ mll.controller("FeedingNewNursingActivityController", ["$scope", "$location", "$
             startTimeWatcher = $scope.$watch("manualStartTime", function(){
                 var time = moment($scope.manualStartTime);
                 if(time.isValid())
+                {
+                    time.local();
                     $scope.startTime = time.valueOf();
+                }
             });
         }else{
             if(hoursWatcher) hoursWatcher();
